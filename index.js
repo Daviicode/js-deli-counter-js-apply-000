@@ -6,10 +6,7 @@ function takeANumber (katzDeliLine, newCustomer) {
   
   
   function nowServing (katzDeliLine) {
-    var i = 0;
-    while (i < katzDeliLine.length) {
-      i++;
-    }
+    
     if (katzDeliLine.length === 0) {
       return ("There is nobody waiting to be served!")
     }else{
@@ -24,9 +21,32 @@ function takeANumber (katzDeliLine, newCustomer) {
     }else{
       var i = 0;
       while (katzDeliLine.length >  i){
-      nameOnLine.push(` `+[i+1]+`. `  + katzDeliLine[i]);
+      nameOnLine.push([i+1]+`. `  + katzDeliLine[i]);
     i++;
         }
         return (`The line is currently:` + nameOnLine);
     }
   }
+  
+  
+  
+  
+  var line = [];
+  var ticketNumber = 1;
+  function takeANumber(line){
+    line.push(ticketNumber);
+    return (`Welcome! You're ticket number #${ticketNumber++}.`);
+  }
+  
+  takeANumber(line) // "Welcome! You're ticket number #1" [1]
+  takeANumber(line) // "Welcome! You're ticket number #2" [1, 2]
+  
+  nowServing(line) // "Currently serving #1" [2]
+  nowServing(line) // "Currently serving #2" []
+  
+  takeANumber(line) // "Welcome! You're ticket number #3" [3]
+  
+  
+  
+  
+  
